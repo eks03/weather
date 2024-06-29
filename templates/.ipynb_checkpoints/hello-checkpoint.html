@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Information</title>
+</head>
+<body>
+    <form action="{{ url_for('index') }}" method="post">
+        <label for="zipcode">Enter Zip Code:</label>
+        <input type="text" id="zipcode" name="zipcode" required>
+        <button type="submit">Get Weather</button>
+    </form>
+
+{% if weather %}
+        <div id="current-weather">
+            <p>Current temp: {{ weather['current']['temp'] }}°F</p>
+            <p>Humidity: {{ weather['current']['humidity'] }}%</p>
+        
+            {% if weather['current']['weather'][0]['main'] == 'Clouds' %}
+                <img src="{{ url_for('static', filename='cloud.png') }}" alt="Cloudy">
+            {% elif weather['current']['weather'][0]['main'] == 'Clear' %}
+                <img src="{{ url_for('static', filename='sun.png') }}" alt="Clear">
+            {% elif weather['current']['weather'][0]['main'] == 'Rain' %}
+                <img src="{{ url_for('static', filename='shitrain.png') }}" alt="Rainy">
+            {% else %}
+                <p>{{ weather['current']['weather'][0]['main'] }}</p>
+            {% endif %}
+        </div> 
+{% endif %}
+</body>
+</html>
