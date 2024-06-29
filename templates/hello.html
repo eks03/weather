@@ -11,8 +11,8 @@
         <input type="text" id="zipcode" name="zipcode" required>
         <button type="submit">Get Weather</button>
     </form>
-
-{% if weather %}
+    
+    {% if weather %}
         <div id="current-weather">
             <p>Current temp: {{ weather['current']['temp'] }}°F</p>
             <p>Humidity: {{ weather['current']['humidity'] }}%</p>
@@ -27,6 +27,7 @@
                 <p>{{ weather['current']['weather'][0]['main'] }}</p>
             {% endif %}
         </div> 
-{% endif %}
+    {% endif %}
+
 </body>
 </html>
