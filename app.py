@@ -73,4 +73,4 @@ def index():
     return render_template('hello.html', weather=data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
