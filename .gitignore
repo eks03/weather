@@ -1,0 +1,12 @@
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Ignore temporary files
+*.tmp
+*.log
+
+# Ignore virtual environments
+venv/
+
+#ignore ipnybs entirely
+.ipynb
